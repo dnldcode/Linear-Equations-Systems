@@ -31,19 +31,19 @@ namespace Project2
 					matrix.addEquation(new Equation(input));
 
 				}
+
+				Console.WriteLine("You have entered following equations:");
+
+				for (int i = 0; i < matrix.Length; i++)
+					Console.Write($"Eq #{i}: {matrix.getEquation(i)}\n");
+
+				Console.WriteLine("Result is:");
+				matrix.printResults();
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine("Error occured: " + e.Message);
 			}
-
-			Console.WriteLine("You have entered following equations:");
-
-			for (int i = 0; i < matrix.Length; i++)
-				Console.Write($"Eq #{i}: {matrix.getEquation(i)}\n");
-
-			Console.WriteLine("Result is:");
-			matrix.printResults();
 		}
 	}
 }

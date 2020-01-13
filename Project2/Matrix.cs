@@ -60,7 +60,8 @@ namespace Project2
 
 			for (int i = 0; i < this.Length - 1; i++)
 			{
-				if (this.getEquation(i).Array[i] == 0 && !pivotProcedure(this, i, i)) return null;
+				if (this.getEquation(i).Array[i] == 0 && !pivotProcedure(this, i, i))
+					throw new Exception("Unable to calculate");
 				for (int j = i; j < this.Length; j++)
 				{
 					double[] d = new double[length];
@@ -124,7 +125,7 @@ namespace Project2
 				result[i] = val / matrix.getEquation(i).Array[i];
 
 				if (!Validate(result[i]))
-					return null;
+					throw new Exception("Unable to calculate");
 			}
 			return result;
 		}
@@ -144,9 +145,7 @@ namespace Project2
 		public void addEquation(Equation e)
 		{
 			if (this.listOfEquations.Count == 0)
-			{
 				this.width = e.Array.Length;
-			}
 
 			if (e.Array.Length != this.width)
 				throw new Exception("Invalid equation added, wrong dimensions!");
@@ -163,9 +162,7 @@ namespace Project2
 		{
 			String res = "";
 			foreach (Equation e in listOfEquations)
-			{
 				res += String.Join(" ", e.Array) + "\n";
-			}
 
 			return res;
 		}
